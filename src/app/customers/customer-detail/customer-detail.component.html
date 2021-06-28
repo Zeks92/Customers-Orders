@@ -86,7 +86,7 @@
             <label for="phoneNumber">Phone Number:</label>
           </div>
           <div class="col-3">
-            <input type="tel" required id="phoneNumber" maxlength="10" pattern="^[2-9]\d{2}\d{3}\d{4}$"
+            <input type="tel" required id="phoneNumber" maxlength="9" pattern="^[0-9\.]+$"
               name="phoneNumber" class="form-control" [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched"
               [(ngModel)]="customer.phoneNumber" #phoneNumber="ngModel" />
             <span class="text-danger" *ngIf="phoneNumber.errors?.required && phoneNumber.touched">
