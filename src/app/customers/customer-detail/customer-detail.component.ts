@@ -17,18 +17,23 @@ export class CustomerDetailComponent implements OnInit {
 
   id: number;
   customer: Customer;
+  initialCustomer: Customer;
   mode: string = 'view';
   orders: Order[];
   orderLines: OrderLine[];
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private dataStorageService: DataStorageService) {
+    private router: Router,
+    private dataStorageService: DataStorageService) {
     this.id = +this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
-    this.dataStorageService.getCustomer(this.id).subscribe(c => this.customer = c);
+    this.dataStorageService.getCustomer(this.id).subscribe(
+      c => {
+        this.customer = { ...c };
+        this.initialCustomer = { ...c };
+      });
     this.dataStorageService.getOrders().subscribe(orders => this.orders = orders.filter(o => o.customerId == this.id));
     this.dataStorageService.getOrderLines().subscribe(orderLines => this.orderLines = orderLines);
 
@@ -60,4 +65,8 @@ export class CustomerDetailComponent implements OnInit {
     }
   }
 
+  cancelEdit() {
+    this.mode = 'view';
+    this.customer = { ...this.initialCustomer };
+  }
 }

@@ -14,10 +14,9 @@
       <h5 class="card-title text-info">Contact Info
         <button class="btn btn-sm btn-info float-right" *ngIf="mode=='view'" (click)="mode='edit'">Edit</button>
         <div class="btn-group-sm float-right">
-          <button class="btn btn-sm btn-info" (click)="saveCustomer(form)" *ngIf="mode=='edit'"
-            [disabled]="form.invalid">Save</button>
+          <button class="btn btn-sm btn-info" (click)="saveCustomer(form)" *ngIf="mode=='edit'" [disabled]="form.invalid">Save</button>
           &nbsp;
-          <button class="btn btn-sm btn-info" (click)="mode='view'" *ngIf="mode=='edit'">Cancel</button>
+          <button class="btn btn-sm btn-info" (click)="cancelEdit()" *ngIf="mode=='edit'">Cancel</button>
         </div>
       </h5>
       <div class="card-text" *ngIf="mode=='view'">
@@ -45,8 +44,7 @@
             <label for="firstName">First Name:</label>
           </div>
           <div class="col-3">
-            <input name="firstName" required id="firstName" class="form-control" [(ngModel)]="customer.firstName"
-              [class.is-invalid]="firstName.invalid && firstName.touched" #firstName="ngModel" />
+            <input name="firstName" required id="firstName" class="form-control" [(ngModel)]="customer.firstName" [class.is-invalid]="firstName.invalid && firstName.touched" #firstName="ngModel" />
             <span class="text-danger" *ngIf="firstName.invalid && firstName.touched">
               First Name is required.
             </span>
@@ -57,9 +55,7 @@
             <label for="lastName">Last Name:</label>
           </div>
           <div class="col-3">
-            <input type="text" required id="lastName" name="lastName" class="form-control"
-              [class.is-invalid]="lastName.invalid && lastName.touched" [(ngModel)]="customer.lastName"
-              #lastName="ngModel" />
+            <input type="text" required id="lastName" name="lastName" class="form-control" [class.is-invalid]="lastName.invalid && lastName.touched" [(ngModel)]="customer.lastName" #lastName="ngModel" />
             <span class="text-danger" *ngIf="lastName.invalid && lastName.touched">
               Last Name is required.
             </span>
@@ -71,8 +67,7 @@
             <label for="email">Email:</label>
           </div>
           <div class="col-3">
-            <input type="text" required email id="email" name="email" class="form-control"
-              [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="customer.email" #email="ngModel" />
+            <input type="text" required email id="email" name="email" class="form-control" [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="customer.email" #email="ngModel" />
             <span class="text-danger" *ngIf="email.errors?.required && email.touched">
               Email is required.
             </span>
@@ -86,9 +81,7 @@
             <label for="phoneNumber">Phone Number:</label>
           </div>
           <div class="col-3">
-            <input type="tel" required id="phoneNumber" maxlength="9" pattern="^[0-9\.]+$"
-              name="phoneNumber" class="form-control" [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched"
-              [(ngModel)]="customer.phoneNumber" #phoneNumber="ngModel" />
+            <input type="tel" required id="phoneNumber" maxlength="9" pattern="^[0-9\.]+$" name="phoneNumber" class="form-control" [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched" [(ngModel)]="customer.phoneNumber" #phoneNumber="ngModel" />
             <span class="text-danger" *ngIf="phoneNumber.errors?.required && phoneNumber.touched">
               Phone Number is required.
             </span>
@@ -102,12 +95,10 @@
 
     <p></p>
     <p></p>
-
+    
     <h5 class="card-title text-info">Orders
-      <button class="btn btn-sm btn-info float-right" [routerLink]="['/orders/create']"
-        [queryParams]="{customerId: customer.id}">Add Order</button>
+      <button class="btn btn-sm btn-info float-right" [routerLink]="['/orders/create']" [queryParams]="{customerId: customer.id}">Add Order</button>
     </h5>
-
     <div *ngIf="orders && orders.length == 0">
       No Orders.
     </div>
@@ -134,14 +125,13 @@
               <button class="btn btn-sm btn-info" [routerLink]="['/orders/detail', order.id]">
                 <i class="fa fa-info-circle"></i>
               </button>
-           </td>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
 <div>
   <a [routerLink]="['/customers', {id: id}]" queryParamsHandling="preserve">
     Back to Customer List
