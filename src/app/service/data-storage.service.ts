@@ -12,7 +12,7 @@ import { Product } from '../model/product.model';
 export class DataStorageService {
     baseUrl: string;
     constructor(private http: HttpClient) {
-        this.baseUrl = "http://localhost:3000/";
+        this.baseUrl = "https://my-json-server.typicode.com/Zeks92/Customers-Orders/";
     }
 
     private handleError(errorResponse: HttpErrorResponse) {

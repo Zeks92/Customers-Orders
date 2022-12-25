@@ -45,7 +45,7 @@
   </div>
 
   <div class="col-8">
-    <h4 class="text-primary">Order # {{ orderId}}
+    <h4 class="text-primary">Order #{{ orderId}}
       <div class="btn-group-sm float-right">
         <button class="btn btn-sm btn-success" (click)="markConfirmed()"
           *ngIf="order && order.status=='Draft'">Confirm</button> &nbsp;
