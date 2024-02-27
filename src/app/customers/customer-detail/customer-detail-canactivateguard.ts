@@ -14,7 +14,7 @@ export class CustomerDetailCanActivateGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
         const id = +route.paramMap.get('id');
         return this.dataStorageService.getCustomers().pipe(map(data => {
-            if (data.filter(c => c.id == id).length > 0) {
+            if (data.filter(c => c.id === id).length > 0) {
                 return true;
             }
             else {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 import { Order } from '../../model/order.model';
 import { DataStorageService } from '../../service/data-storage.service';
 import { Customer } from '../../model/customer.model';
@@ -13,7 +13,7 @@ export class OrderCreateComponent implements OnInit {
   order: Order = new Order();
   customers: Customer[];
 
-  addOrder: boolean = false;
+  addOrder = false;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -31,8 +31,8 @@ export class OrderCreateComponent implements OnInit {
     this.dataStorageService.getCustomers().subscribe(customers => this.customers = customers);
   }
 
-  save(order: Order) {
+  save(order: Order): void {
     this.order.status = 'Draft';
-    this.dataStorageService.postOrder(this.order).subscribe(order => this.router.navigate(['/orders/detail', order.id]));
+    this.dataStorageService.postOrder(this.order).subscribe((order: Order) => this.router.navigate(['/orders/detail', order.id]));
   }
 }
