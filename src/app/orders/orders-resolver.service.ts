@@ -5,9 +5,8 @@ import { DataStorageService } from '../service/data-storage.service';
 
 @Injectable()
 export class OrdersResolverService implements Resolve<Order[]> {
-    constructor(private dataStorageService: DataStorageService) { 
+    constructor(private dataStorageService: DataStorageService) {
     }
-    
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
       return this.dataStorageService.getOrders();      
     }

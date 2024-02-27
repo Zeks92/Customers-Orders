@@ -7,9 +7,9 @@ import { CustomerCreateComponent } from './customer-create.component';
 export class CustomerCreateCanDeactivateGuard implements CanDeactivate<CustomerCreateComponent> {
     canDeactivate(component: CustomerCreateComponent): boolean {
         if (component.customerCreateForm.dirty) {
-            return confirm("Are you sure you want discard the changes?");
+            return confirm('Are you sure you want discard the changes?');
         }
-        return true;        
-    } 
+        return true;
+    }
 }
 

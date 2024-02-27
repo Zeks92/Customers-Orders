@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Customer } from '../../model/customer.model';
 
@@ -8,10 +8,10 @@ import { Customer } from '../../model/customer.model';
   templateUrl: './customer-display.component.html',
   styleUrls: ['./customer-display.component.css']
 })
-export class CustomerDisplayComponent implements OnInit {
+export class CustomerDisplayComponent {
   @Input()
   customer: Customer;
-  id: number = 0;
+  id = 0;
 
   constructor(private route: ActivatedRoute) {
     if (this.route.snapshot.paramMap.has('id')) {
@@ -19,5 +19,4 @@ export class CustomerDisplayComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
 }

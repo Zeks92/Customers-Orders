@@ -12,21 +12,21 @@ import { Product } from '../model/product.model';
 export class DataStorageService {
     baseUrl: string;
     constructor(private http: HttpClient) {
-        this.baseUrl = "https://my-json-server.typicode.com/Zeks92/Customers-Orders/";
+        this.baseUrl = 'https://my-json-server.typicode.com/Zeks92/Customers-Orders/';
     }
 
-    private handleError(errorResponse: HttpErrorResponse) {
+    private handleError(errorResponse: HttpErrorResponse): Observable<never>{
         if (errorResponse.error instanceof ErrorEvent) {
             console.error('Client Side Error: ', errorResponse.error.message);
-        }        
+        }
         else {
             console.error('Server Side Error: ', errorResponse);
         }
         return throwError(`Problem with service: ${errorResponse.message}`);
-    } 
+    }
 
     getCustomers(): Observable<Customer[]> {
-        return this.http.get<Customer[]>(this.baseUrl + "customers")
+        return this.http.get<Customer[]>(this.baseUrl + 'customers')
         .pipe(catchError(this.handleError));
     }
 
@@ -36,11 +36,11 @@ export class DataStorageService {
     }
 
     postCustomer(customer: Customer): Observable<Customer> {
-        return this.http.post<Customer>(this.baseUrl + "customers", customer)
+        return this.http.post<Customer>(this.baseUrl + 'customers', customer)
         .pipe(catchError(this.handleError));
     }
 
-    updateCustomer(customer:Customer): Observable<Customer> {
+    updateCustomer(customer: Customer): Observable<Customer> {
         return this.http.put<Customer>(`${this.baseUrl}customers/${customer.id}`, customer)
         .pipe(catchError(this.handleError));
     }
@@ -51,7 +51,7 @@ export class DataStorageService {
     }
 
     getOrders(): Observable<Order[]> {
-        return this.http.get<Order[]>(this.baseUrl + "orders")
+        return this.http.get<Order[]>(this.baseUrl + 'orders')
         .pipe(catchError(this.handleError));
     }
 
@@ -61,7 +61,7 @@ export class DataStorageService {
     }
 
     postOrder(order: Order): Observable<Order> {
-        return this.http.post<Order>(this.baseUrl + "orders", order)
+        return this.http.post<Order>(this.baseUrl + 'orders', order)
         .pipe(catchError(this.handleError));
     }
 
@@ -76,12 +76,12 @@ export class DataStorageService {
     }
 
     getOrderLines(): Observable<OrderLine[]> {
-        return this.http.get<OrderLine[]>(this.baseUrl + "orderlines")
+        return this.http.get<OrderLine[]>(this.baseUrl + 'orderlines')
         .pipe(catchError(this.handleError));
     }
 
     postOrderLine(orderLine: OrderLine): Observable<OrderLine> {
-        return this.http.post<OrderLine>(this.baseUrl + "orderlines", orderLine)
+        return this.http.post<OrderLine>(this.baseUrl + 'orderlines', orderLine)
         .pipe(catchError(this.handleError));
     }
 
@@ -91,8 +91,7 @@ export class DataStorageService {
     }
 
     getProducts(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.baseUrl + "products")
+        return this.http.get<Product[]>(this.baseUrl + 'products')
         .pipe(catchError(this.handleError));
     }
-
 }

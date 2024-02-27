@@ -29,8 +29,8 @@ export class OrderListComponent implements OnInit {
 
   get fullOrders() {
     const result = this.orders.map(order => {
-      const item = this.customers.find(customer => customer.id == order.customerId);
-      const name = item.firstName + " " + item.lastName;
+      const item = this.customers.find(customer => customer.id === order.customerId);
+      const name = item.firstName + ' ' + item.lastName;
       const email = item.email;
       const newproperties = {
         customerName: name,
@@ -44,7 +44,7 @@ export class OrderListComponent implements OnInit {
   get filteredOrders() {
     let fOrders = this.fullOrders;
     if (this.id) {
-      fOrders = fOrders.filter(o => o.id == this.id);
+      fOrders = fOrders.filter(o => o.id === this.id);
     }
     if (this.customerName) {
       fOrders = fOrders.filter(o => o.customerName.toLowerCase().includes(this.customerName.toLowerCase()));
@@ -56,11 +56,11 @@ export class OrderListComponent implements OnInit {
   }
 
   get pageOrders(): Customer[] {
-    let pageIndex = (this.selectedPage - 1) * this.ordersPerPage;
+    const pageIndex = (this.selectedPage - 1) * this.ordersPerPage;
     return this.filteredOrders.slice(pageIndex, pageIndex + this.ordersPerPage);
   }
 
-  changePage(newPage: number) {
+  changePage(newPage: number): void {
     this.selectedPage = newPage;
   }
 

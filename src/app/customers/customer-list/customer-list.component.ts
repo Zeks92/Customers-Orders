@@ -60,11 +60,11 @@ export class CustomerListComponent implements OnInit {
   }
 
   get pageCustomers(): Customer[] {
-    let pageIndex = (this.selectedPage - 1) * this.customersPerPage;
+    const pageIndex = (this.selectedPage - 1) * this.customersPerPage;
     return this.filteredCustomers.slice(pageIndex, pageIndex + this.customersPerPage);
   }
 
-  changePage(newPage: number) {
+  changePage(newPage: number): void {
     this.selectedPage = newPage;
   }
 
@@ -74,7 +74,13 @@ export class CustomerListComponent implements OnInit {
 
   viewDetail(id: number): void {
     this.router.navigate(['customers/detail', id], {
-      queryParams: { 'p': this.selectedPage, 'firstName': this.firstName, 'lastName': this.lastName, 'email': this.email, 'phoneNumber': this.phoneNumber }
-    })
+      queryParams: {
+         'p': this.selectedPage, 
+         'firstName': this.firstName, 
+         'lastName': this.lastName, 
+         'email': this.email, 
+         'phoneNumber': this.phoneNumber
+        }
+    });
   }
 }

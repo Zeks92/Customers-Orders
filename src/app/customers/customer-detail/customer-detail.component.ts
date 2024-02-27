@@ -13,35 +13,33 @@ import { OrderLine } from '../../model/line.model';
   styleUrls: ['./customer-detail.component.css']
 })
 export class CustomerDetailComponent implements OnInit {
-
-
   id: number;
   customer: Customer;
   initialCustomer: Customer;
-  mode: string = 'view';
+  mode = 'view';
   orders: Order[];
   orderLines: OrderLine[];
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private dataStorageService: DataStorageService) {
     this.id = +this.route.snapshot.paramMap.get('id');
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataStorageService.getCustomer(this.id).subscribe(
       c => {
         this.customer = { ...c };
         this.initialCustomer = { ...c };
       });
-    this.dataStorageService.getOrders().subscribe(orders => this.orders = orders.filter(o => o.customerId == this.id));
+    this.dataStorageService.getOrders().subscribe(orders => this.orders = orders.filter(o => o.customerId === this.id));
     this.dataStorageService.getOrderLines().subscribe(orderLines => this.orderLines = orderLines);
-
   }
 
   get ordersWSum() {
     const result = this.orders.map(order => {
-      const orderLines = this.orderLines.filter(ol => ol.orderId == order.id);
+      const orderLines = this.orderLines.filter(ol => ol.orderId === order.id);
       const itemCount = orderLines.reduce((prev, line) => prev + line.orderQty, 0);
       const orderTotal = orderLines.reduce((prev, line) => prev + line.orderQty * line.unitPrice, 0);
       const newproperties = { itemCount: itemCount, orderTotal: orderTotal };
@@ -65,7 +63,7 @@ export class CustomerDetailComponent implements OnInit {
     }
   }
 
-  cancelEdit() {
+  cancelEdit(): void {
     this.mode = 'view';
     this.customer = { ...this.initialCustomer };
   }
