@@ -1,0 +1,286 @@
+{
+  "customers": [
+    {
+      "email": "c.evans@randatmail.com",
+      "firstName": "Catherine ",
+      "id": 1,
+      "lastName": "Evans",
+      "phoneNumber": "895794453"
+    },
+    {
+      "email": "v.scott@randatmail.com",
+      "firstName": "Vivian",
+      "id": 2,
+      "lastName": "Scott",
+      "phoneNumber": "540203705"
+    },
+    {
+      "email": "j.cunningham@randatmail.com",
+      "firstName": "Julian",
+      "id": 3,
+      "lastName": "Cunningham",
+      "phoneNumber": "845828567"
+    },
+    {
+      "email": "e.baker@randatmail.com",
+      "firstName": "Elise",
+      "id": 4,
+      "lastName": "Baker",
+      "phoneNumber": "990337338"
+    },
+    {
+      "email": "r.barnes@randatmail.com",
+      "firstName": "Ryan",
+      "id": 5,
+      "lastName": "Barnes",
+      "phoneNumber": "977114264"
+    },
+    {
+      "email": "j.foster@randatmail.com",
+      "firstName": "James",
+      "id": 6,
+      "lastName": "Foster",
+      "phoneNumber": "649110463"
+    },
+    {
+      "email": "c.scott@randatmail.com",
+      "firstName": "Connie",
+      "id": 7,
+      "lastName": "Scott",
+      "phoneNumber": "728830000"
+    },
+    {
+      "email": "l.mitchell@randat.com",
+      "firstName": "Leonardo",
+      "id": 8,
+      "lastName": "Mitchell",
+      "phoneNumber": "954390231"
+    }
+  ],
+  "orderlines": [
+    {
+      "id": 1,
+      "orderId": 1,
+      "orderQty": 2,
+      "productId": 1,
+      "unitPrice": 2000
+    },
+    {
+      "id": 2,
+      "orderId": 2,
+      "orderQty": 1,
+      "productId": 2,
+      "unitPrice": 10000
+    },
+    {
+      "id": 3,
+      "orderId": 3,
+      "orderQty": 1,
+      "productId": 5,
+      "unitPrice": 300
+    },
+    {
+      "id": 4,
+      "orderId": 5,
+      "orderQty": 3,
+      "productId": 3,
+      "unitPrice": 700
+    },
+    {
+      "id": 5,
+      "orderId": 6,
+      "orderQty": 2,
+      "productId": 3,
+      "unitPrice": 700
+    },
+    {
+      "id": 6,
+      "orderId": 7,
+      "orderQty": 4,
+      "productId": 5,
+      "unitPrice": 300
+    },
+    {
+      "id": 7,
+      "orderId": 8,
+      "orderQty": 50,
+      "productId": 4,
+      "unitPrice": 2
+    },
+    {
+      "id": 8,
+      "orderId": 9,
+      "orderQty": 1000,
+      "productId": 4,
+      "unitPrice": 2
+    },
+    {
+      "id": 9,
+      "orderId": 10,
+      "orderQty": 2000,
+      "productId": 1,
+      "unitPrice": 15
+    },
+    {
+      "id": 10,
+      "orderId": 11,
+      "orderQty": 5,
+      "productId": 3,
+      "unitPrice": 700
+    },
+    {
+      "id": 11,
+      "orderId": 12,
+      "orderQty": 1,
+      "productId": 2,
+      "unitPrice": 10000
+    },
+    {
+      "id": 12,
+      "orderId": 13,
+      "orderQty": 10,
+      "productId": 5,
+      "unitPrice": 300
+    }
+  ],
+  "orders": [
+    {
+      "customerId": 1,
+      "dueDate": "2021-06-28",
+      "id": 1,
+      "orderDate": "2021-06-21",
+      "shipDate": "2021-06-21T08:19:40.674Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 1,
+      "dueDate": "2021-06-24",
+      "id": 2,
+      "orderDate": "2021-06-22",
+      "shipDate": "2021-06-22T08:52:16.771Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 2,
+      "dueDate": "2021-06-24",
+      "id": 3,
+      "orderDate": "2021-06-22",
+      "shipDate": "2021-06-22T08:52:46.418Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 2,
+      "dueDate": "2021-06-24",
+      "id": 4,
+      "orderDate": "2021-06-22",
+      "status": "Draft"
+    },
+    {
+      "customerId": 3,
+      "dueDate": "2021-06-27",
+      "id": 5,
+      "orderDate": "2021-06-22",
+      "shipDate": "2021-06-22T09:17:51.625Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 4,
+      "dueDate": "2021-06-24",
+      "id": 6,
+      "orderDate": "2021-06-22",
+      "shipDate": "2021-06-22T12:01:20.080Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 4,
+      "dueDate": "2021-06-22",
+      "id": 7,
+      "orderDate": "2021-06-22",
+      "status": "Voided"
+    },
+    {
+      "customerId": 5,
+      "dueDate": "2021-06-24",
+      "id": 8,
+      "orderDate": "2021-06-22",
+      "status": "Confirmed"
+    },
+    {
+      "customerId": 1,
+      "dueDate": "2021-06-24",
+      "id": 9,
+      "orderDate": "2021-06-22",
+      "shipDate": "2021-06-22T13:06:01.510Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 3,
+      "dueDate": "2021-06-25",
+      "id": 10,
+      "orderDate": "2021-06-23",
+      "status": "Voided"
+    },
+    {
+      "customerId": 6,
+      "dueDate": "2021-06-26",
+      "id": 11,
+      "orderDate": "2021-06-23",
+      "shipDate": "2021-06-23T08:12:45.872Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 6,
+      "dueDate": "2021-06-27",
+      "id": 12,
+      "orderDate": "2021-06-23",
+      "status": "Confirmed"
+    },
+    {
+      "customerId": 7,
+      "dueDate": "2021-06-30",
+      "id": 13,
+      "orderDate": "2021-06-23",
+      "shipDate": "2021-06-23T09:12:01.302Z",
+      "status": "Shipped"
+    },
+    {
+      "customerId": 7,
+      "dueDate": "2021-06-26",
+      "id": 14,
+      "orderDate": "2021-06-23",
+      "status": "Draft"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productName": "Shirt",
+      "productPrice": 15,
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "productName": "Car",
+      "productPrice": 10000,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "productName": "Computer",
+      "productPrice": 700,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "productName": "Chocolate",
+      "productPrice": 2,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "productName": "TV",
+      "productPrice": 300,
+      "quantity": 1
+    }
+  ]
+}
